@@ -6,8 +6,7 @@ githubUserSearch.controller('GitUserSearchController', ['$resource', function($r
   self.doSearch = function() {
     console.log(token)
     self.searchResult = searchResource.get(
-      { q: self.searchTerm,
-        access_token: token }
+      { access_token: token, q: self.searchTerm }
     );
   }
 }]);

@@ -7,7 +7,7 @@ describe('GitUserSearchController', function() {
     ctrl = $controller('GitUserSearchController');
   }));
 
-  xit('initialises with an empty search result and term', function() {
+  it('initialises with an empty search result and term', function() {
     expect(ctrl.searchResult).toBeUndefined();
     expect(ctrl.searchTerm).toBeUndefined();
   });
@@ -27,6 +27,8 @@ describe('GitUserSearchController', function() {
     ];
 
     it('displays search results', function() {
+      ctrl.searchTerm = 'hello';
+      ctrl.doSearch();
       expect(ctrl.searchResult.items).toEqual(items);
     });
   });

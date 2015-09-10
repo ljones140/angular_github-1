@@ -13,11 +13,11 @@ describe('factory: Search', function() {
       httpBackend
         .when("GET", "https://api.github.com/search/users?access_token=" + token + "&q=hello")
         .respond(
-          { items: items }
+          { smarties: mars }
         );
     }));
 
-    var items = [
+    var mars = [
       {
         "login": "tansaku",
         "avatar_url": "https://avatars.githubusercontent.com/u/30216?v=3",
@@ -37,7 +37,7 @@ describe('factory: Search', function() {
   it('returns search results', function() {
     search.query('hello')
       .then(function(response) {
-        expect(response.data).toEqual(items)
+        expect(response.data.smarties).toEqual(mars)
       })
     httpBackend.flush();
   })

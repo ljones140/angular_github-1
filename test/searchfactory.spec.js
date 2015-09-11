@@ -2,7 +2,7 @@ describe('factory: Search', function() {
 
   var search;
 
-  beforeEach(module('GitUserSearch'));
+  beforeEach(module('GitUserSearch')); //loads the angular module//
 
   beforeEach(inject(function(Search) {
     search = Search;

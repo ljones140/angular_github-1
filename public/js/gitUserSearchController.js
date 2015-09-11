@@ -1,3 +1,5 @@
+// sepcify dependencies as a sting in array and it will get passed into the function. reason for string is minification.
+
 githubUserSearch.controller('GitUserSearchController', ['Search', function(Search) {
 
   var self = this;
@@ -8,9 +10,11 @@ githubUserSearch.controller('GitUserSearchController', ['Search', function(Searc
   //   );
 
   self.doSearch = function() {
-    Search.query(self.searchTerm)
-      .then(function(response) {
-        self.searchResult = response.data;
-      })
+    if (self.searchTerm) {
+      Search.query(self.searchTerm)  //returns a promise
+        .then(function(response) {
+          self.searchResult = response.data;
+        });
+    }
   }
 }]);

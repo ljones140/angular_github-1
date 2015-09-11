@@ -19,10 +19,12 @@
         <input type="text" ng-model="searchCtrl.searchTerm" ng-change="searchCtrl.doSearch()" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }">
         <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
+        <pre class="search-label">Search Term: {{ searchCtrl.searchTerm }}</pre>
         <ul class="list-group">
           <li ng-repeat="user in searchCtrl.searchResult.items">
             <img ng-src="{{user.avatar_url}}&s=50" width='100px' height='100px'>
             <a ng-href="{{user.html_url}}">{{user.login}}</a>
+            <p class='member-score'>{{user.score}}</p>
           </li>
         </ul>
     </div>
